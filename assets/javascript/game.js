@@ -10,8 +10,8 @@ var userLetterBank = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
 
 var wins = 0;
 var losses = 0;
-var guessesLeft = 0;
-var yourGuesses = 9;
+var guessesLeft = 8;
+var yourGuesses = [];
 
 // list of variables that will be taking the place in the html.
 
@@ -42,12 +42,34 @@ document.onkeyup = function(event) {
     //     }
         if (userGuess === winingLetter){
             wins++;
-        } else if ( userGuess !== winingLetter){
-            losses++
+            yourGuesses=[];
+            guessesLeft= 8;
+        } 
+        
+        else { ( userGuess !== winingLetter) // now i need to work on the guesses left to decrease as the user guess the wrong letter.
+            guessesLeft--;
         }
 
-    winText.textContent = "win:" + wins;
-    lossesText.textContent= "losses:" + losses;
+
+         if ( guessesLeft === 0){
+            losses++;
+            yourGuesses= [];
+            guessesLeft= 8;
+        }
+
+        
+        // else{
+        //     if guessesLeft = -1;
+
+        // }
+//
+yourGuesses.push(event.key)
+    
+
+    winText.textContent = "win: " + wins;
+    lossesText.textContent= "losses: " + losses;
+    yourGuessesText.textContent= "your guess: " + yourGuesses;
+    guessesLeftText.textContent= "guessesLeft: " + guessesLeft;
 
 
     
