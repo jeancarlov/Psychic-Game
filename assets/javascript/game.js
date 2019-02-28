@@ -1,8 +1,8 @@
-//// Array that holds the list of options for the player
+//// Array that holds the list of options for the player.
 var userLetterBank = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
     'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
     't', 'u', 'v', 'w', 'x', 'y', 'z'];
-
+//  placeholder variables.
 var wins = 0;
 var losses = 0;
 var guessesLeft = 8;
@@ -51,7 +51,7 @@ document.onkeyup = function (event) {
 
     yourGuesses.push(event.key)
 
-
+    // display the user and winner letters.
     winText.textContent = "win: " + wins;
     lossesText.textContent = "losses: " + losses;
     yourGuessesText.textContent = "your guess: " + yourGuesses;
