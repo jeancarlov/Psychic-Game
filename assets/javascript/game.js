@@ -1,12 +1,7 @@
 //// Array that holds the list of options for the player
 var userLetterBank = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
-'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
-'t', 'u', 'v', 'w', 'x', 'y', 'z'];
-
-// var autoWiningLetter = ['c','h','t','y','j'];
-// var autoWiningLetterIndex = 0;
-
-/// list of variables that will hold the number of Wins, Losses, Guesses left, and your guesses so far.
+    'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
+    't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
 var wins = 0;
 var losses = 0;
@@ -21,7 +16,7 @@ var guessesLeftText = document.getElementById("guessesLeft-text");
 var yourGuessesText = document.getElementById("yourGuesses-text");
 
 // This funtion is run whenever the user presses a key.
-document.onkeyup = function(event) {
+document.onkeyup = function (event) {
 
     // Determines which key was pressed.
     var userGuess = event.key;
@@ -34,45 +29,36 @@ document.onkeyup = function(event) {
     // FUNCTION logic -----------------
     // render function for the render letter.
 
-    // option 1
-
-    // function renderLetter(){
-    //     if (autoWiningLetterIndex <= (autoWiningLetter.length -1)){
-    //         document.querySelector("#win-test").innerHTML = autoWiningLetter[autoWiningLetterIndex];  
     //     }
-        if (userGuess === winingLetter){
-            wins++;
-            yourGuesses=[];
-            guessesLeft= 8;
-        } 
-        
-        else { ( userGuess !== winingLetter) // now i need to work on the guesses left to decrease as the user guess the wrong letter.
-            guessesLeft--;
-        }
+    if (userGuess === winingLetter) {
+        wins++;
+        yourGuesses = [];
+        guessesLeft = 8;
+    }
+
+    else {
+        (userGuess !== winingLetter) // now i need to work on the guesses left to decrease as the user guess the wrong letter.
+        guessesLeft--;
+    }
 
 
-         if ( guessesLeft === 0){
-            losses++;
-            yourGuesses= [];
-            guessesLeft= 8;
-        }
+    if (guessesLeft === 0) {
+        losses++;
+        yourGuesses = [];
+        guessesLeft = 8;
+    }
 
-        
-        // else{
-        //     if guessesLeft = -1;
 
-        // }
-//
-yourGuesses.push(event.key)
-    
+    yourGuesses.push(event.key)
+
 
     winText.textContent = "win: " + wins;
-    lossesText.textContent= "losses: " + losses;
-    yourGuessesText.textContent= "your guess: " + yourGuesses;
-    guessesLeftText.textContent= "guessesLeft: " + guessesLeft;
+    lossesText.textContent = "losses: " + losses;
+    yourGuessesText.textContent = "your guess: " + yourGuesses;
+    guessesLeftText.textContent = "guessesLeft: " + guessesLeft;
 
 
-    
+
 }
 
 
@@ -80,10 +66,3 @@ yourGuesses.push(event.key)
 
 
 
-// //  // Display the user and computer guesses, and wins/losses/ties.
-// //  userChoiceText.textContent = "You chose: " + userGuess;
-// //  computerChoiceText.textContent = "The computer chose: " + computerGuess;
-// //  winsText.textContent = "wins: " + wins;
-// //  lossesText.textContent = "losses: " + losses;
-// //  tiesText.textContent = "ties: " + ties;
-// }
